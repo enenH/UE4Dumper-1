@@ -213,7 +213,9 @@ int main(int argc, char *argv[]) {
                 if (isFastDump) {
                     auto *buffer = new uint8_t[libsize];
                     memset(buffer, '\0', libsize);
-                    vm_readv((void *) start_addr, buffer, libsize);
+                    for (size_t i = 0; i < libsize; i += 4096) {
+                        vm_readv((void *) (start_addr + i), buffer + i, 4096);
+                    }
                     rdump.write((char *) buffer, libsize);
                 } else {
                     char *buffer = new char[1];
@@ -236,7 +238,9 @@ int main(int argc, char *argv[]) {
                 if (isFastDump) {
                     auto *buffer = new uint8_t[libsize];
                     memset(buffer, '\0', libsize);
-                    vm_readv((void *) start_addr, buffer, libsize);
+                    for (size_t i = 0; i < libsize; i += 4096) {
+                        vm_readv((void *) (start_addr + i), buffer + i, 4096);
+                    }
                     ldump.write((char *) buffer, libsize);
                 } else {
                     char *buffer = new char[1];
