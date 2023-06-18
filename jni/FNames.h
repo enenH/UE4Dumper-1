@@ -214,7 +214,7 @@ void DumpStrings(string out) {
         cout << "Dumping Strings" << endl;
         clock_t begin = clock();
         if (isUE423) {
-            kaddr FNamePool = getRealOffset(Offsets::GNames) + Offsets::GNamesToFNamePool;
+            kaddr FNamePool = getRealOffset(Offsets::GNames) /*+ Offsets::GNamesToFNamePool*/;
 
             uint32 BlockSize = Offsets::FNameStride * 65536;
             uint32 CurrentBlock = Read<uint32>(FNamePool + Offsets::FNamePoolToCurrentBlock);

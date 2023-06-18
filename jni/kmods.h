@@ -105,5 +105,7 @@ bool isPUBGSeries() {
            isEqual(pkg, "com.vng.pubgmobile") ||
            isEqual(pkg, "com.rekoo.pubgm") || isPUBGLite() || isBGMIndia();
 }
-
+bool isUam(){
+    return isEqual(pkg, "com.tencent.mf.uam");
+}
 #endif

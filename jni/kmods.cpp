@@ -151,6 +151,11 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    isSdkDump = true;
+    isUE423 = true;
+    Offsets::GUObjectArray = 0xdd245d0;
+    Offsets::GNames = 0xdd05440;
+    pkg = "com.tencent.mf.uam";
 #if defined(__LP64__)
     Offsets::initOffsets_64();
     if (isUE423) {
